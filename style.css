@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    touch-action: none;
+}
+
+canvas {
+    background: #222;
+    image-rendering: pixelated;
+    touch-action: none;
+}
+
+/* Styling Tambahan Khusus Cutscene (dari index.html) */
+.cutscene-container {
+    width: 640px; 
+    height: 360px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    font-family: 'Courier New', monospace; 
+    position: relative;
+    overflow: hidden;
+}
+
+#dialogText {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    max-width: 80%;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+    text-shadow: 0 0 3px #fff;
+    min-height: 25px; 
+}
+
+#dialogText.active {
+    opacity: 1;
+}
+
+#prompt {
+    color: #4CAF50; 
+    font-size: 14px;
+    margin-top: 50px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#prompt.active {
+    opacity: 1;
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+
+/* Styling untuk Kotak Dialog (dari scene1.html) */
+.dialog-box {
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px; 
+    height: 100px;
+    background-color: #a912c0; 
+    border: 4px solid #fff;
+    padding: 15px;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    z-index: 100; 
+    display: none; 
+    image-rendering: pixelated; 
+}
+
+/* Styling untuk Gambar Karakter Dialog (BARU) */
+#characterImage {
+    position: absolute;
+    bottom: 120px; /* Di atas kotak dialog */
+    right: calc(50% - 300px); /* Posisikan di sebelah kiri kotak dialog */
+    width: 100px; 
+    height: auto; 
+    border: 3px solid #ccc;
+    background: #000;
+    z-index: 99;
+    display: none;
+    image-rendering: pixelated;
+    transition: opacity 0.5s;
+}
+

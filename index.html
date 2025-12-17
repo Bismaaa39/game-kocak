@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Prolog</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling Tambahan Khusus Cutscene */
+        .cutscene-container {
+            width: 640px; 
+            height: 360px;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Teks di tengah */
+            align-items: center;
+            font-family: 'Courier New', monospace; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        #dialogText {
+            font-size: 20px;
+            text-align: center;
+            padding: 10px 20px;
+            max-width: 80%;
+            opacity: 0; /* Awalnya disembunyikan */
+            transition: opacity 0.5s ease-in-out;
+            text-shadow: 0 0 3px #fff;
+            min-height: 25px; /* Mencegah layar bergeser saat teks kosong */
+        }
+        
+        #dialogText.active {
+            opacity: 1;
+        }
+
+        #prompt {
+            color: #4CAF50; 
+            font-size: 14px;
+            margin-top: 50px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        #prompt.active {
+            opacity: 1;
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cutscene" class="cutscene-container">
+        <div id="dialogText"></div>
+        <div id="prompt">Enter atau Tap untuk Lanjut</div>
+    </div>
+
+    <script src="title.js"></script>
+</body>
+</html>
